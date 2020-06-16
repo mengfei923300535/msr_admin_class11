@@ -59,6 +59,10 @@
     <modules>
         <module>../msr-common</module>
         <module>../msr-edu</module>
+        <module>../msr-ucenter</module>
+        <module>../msr-statistics</module>
+        <module>../renren-fast</module>
+
         <!--<module>../renren-fast</module>-->
 
     </modules>
