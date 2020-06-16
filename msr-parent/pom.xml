@@ -62,7 +62,7 @@
         <module>../msr-ucenter</module>
         <module>../msr-statistics</module>
         <module>../renren-fast</module>
-
+        <module>../renren-generator</module>
         <!--<module>../renren-fast</module>-->
 
     </modules>
