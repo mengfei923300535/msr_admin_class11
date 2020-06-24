@@ -34,7 +34,7 @@ public class TeacherController {
     private TeacherService teacherService;
 
     @ApiOperation(value = "所有讲师列表")
-    @GetMapping
+    @GetMapping("/list")
     public R list(){
         List<Teacher> teacherList = teacherService.list(null);
         return R.ok().data("list",teacherList);

@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.msr.edu.mapper")
+@MapperScan("com.msr.statistics.mapper")
 public class MyBatisPlusConfig {
     /**
      * SQL 执行性能分析插件
