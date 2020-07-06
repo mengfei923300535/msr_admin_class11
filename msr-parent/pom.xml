@@ -65,6 +65,7 @@
         <module>../renren-fast</module>
         <module>../renren-generator</module>
         <module>../msr-gateway</module>
+        <module>../msr-third-party</module>
         <!--<module>../msr-gateway</module>-->
 
     </modules>

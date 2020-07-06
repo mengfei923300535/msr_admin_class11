@@ -2,6 +2,12 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: third_party_route
+          uri: lb://msr-third-party
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
 
         - id: edu_route
           uri: lb://msr-edu

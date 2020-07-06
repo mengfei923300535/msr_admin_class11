@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ import java.util.List;
  * @since 2020-06-12
  */
 @Api(description="讲师管理")
-@CrossOrigin //跨域
+
 @RestController
 @RequestMapping("/edu/teacher")
 public class TeacherController {
@@ -41,11 +42,11 @@ public class TeacherController {
     }
 
     @ApiOperation(value = "根据ID删除讲师")
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete")
     public R removeById(
-            @ApiParam(name = "id" , value = "讲师ID", required = true)
-            @PathVariable String id){
-        boolean flag = teacherService.removeById(id);
+            @ApiParam(name = "ids" , value = "讲师ID", required = true)
+        @RequestBody Long[] ids){
+        boolean flag = teacherService.removeByIds(Arrays.asList(ids));
         return R.ok();
     }
     @ApiOperation(value = "分页讲师列表")
@@ -87,7 +88,7 @@ public class TeacherController {
     //后端但会的数据如果是集合，则键名用list，如果返回的时对象则用item
 
     @ApiOperation(value = "根据ID查询讲师")
-    @GetMapping("{id}")//路径传参
+    @GetMapping("/info/{id}")//路径传参
     public R getById(
             @ApiParam(name = "id", value = "讲师ID", required = true)
             @PathVariable String id){
@@ -97,15 +98,15 @@ public class TeacherController {
     }
 
     @ApiOperation(value = "根据ID修改讲师")
-    @PutMapping("{id}")//路径传参
+    @PutMapping("/update")//路径传参
     public R updateById(
-            @ApiParam(name = "id", value = "讲师ID", required = true)
-            @PathVariable String id,
+
 
             @ApiParam(name = "teacher", value = "讲师对象", required = true)
             @RequestBody Teacher teacher){
 
-        teacher.setId(id);
+        //teacher.setId(id);
+        //teacherService.update(teacher,null);
         teacherService.updateById(teacher);
         return R.ok();
     }
